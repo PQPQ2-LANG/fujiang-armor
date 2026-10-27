@@ -1,0 +1,13 @@
+# fujiang-armor bundle patch: inserts the plugin into a profile's layer stack.
+# Overlay system-prompt so Harness does not enforce restrictive coding-agent refusals.
+- id: system-prompt
+  config:
+    includeHarnessIdentity: false
+    personaPrefix: ""
+    personaSuffix: Your working directory is {{cwd}}.
+- insert:
+    - id: fujiang-armor
+      name: 'fujiang-armor'
+      config:
+        enabled: true
+        autoApplyOnStart: true
